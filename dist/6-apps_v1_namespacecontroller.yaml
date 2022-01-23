@@ -1,0 +1,6 @@
+apiVersion: apps.alexeav.ru/v1
+kind: NamespaceController
+metadata:
+  name: namespacecontroller
+spec:
+  # Add fields here
