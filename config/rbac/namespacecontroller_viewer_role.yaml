@@ -1,0 +1,20 @@
+# permissions for end users to view namespacecontrollers.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: namespacecontroller-viewer-role
+rules:
+- apiGroups:
+  - apps.alexeav.ru
+  resources:
+  - namespacecontrollers
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - apps.alexeav.ru
+  resources:
+  - namespacecontrollers/status
+  verbs:
+  - get

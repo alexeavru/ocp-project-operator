@@ -1,0 +1,70 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  creationTimestamp: null
+  name: namespace-controller
+rules:
+- apiGroups:
+  - apps.alexeav.ru
+  resources:
+  - namespacecontrollers
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - apps.alexeav.ru
+  resources:
+  - namespacecontrollers/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - apps.alexeav.ru
+  resources:
+  - namespacecontrollers/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - ""
+  resources:
+  - namespaces
+  - configmaps
+  - secrets
+  - serviceaccount
+  - serviceaccounts
+  - events
+  verbs:
+  - create
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - "coordination.k8s.io"
+  resources:
+  - leases
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - ""
+  resources:
+  - serviceaccount
+  verbs:
+  - get
+  - list
+  - patch
+  - update
